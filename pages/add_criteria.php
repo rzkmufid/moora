@@ -5,15 +5,14 @@ if (!isset($_SESSION['loggedin'])) {
     exit();  
 }  
   
-include '../includes/header.php';  
 include '../includes/db.php';  
-  
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
     $name = $_POST['name'];  
     $code = $_POST['code'];  
     $type = $_POST['type'];  
     $weight = $_POST['weight'];  
-  
+    
     $sql = "INSERT INTO criteria (code, name, type, weight) VALUES ('$code', '$name', '$type', '$weight')";  
     if ($conn->query($sql) === TRUE) {  
         $success = "Criteria added successfully.";  
@@ -23,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "Error: " . $sql . "<br>" . $conn->error;  
     }  
 }  
+include '../includes/header.php';  
 ?>  
   
 <div class="container mt-5">
@@ -72,4 +72,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Page level custom scripts -->
     <script src="../js/demo/datatables-demo.js"></script>
   
-<?php include '../includes/sidebar.php'; ?>  
+

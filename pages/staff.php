@@ -45,10 +45,30 @@ include '../includes/db.php';
                                     <td>{$row['name']}</td>
                                     <td>
                                         <a href='edit_staff.php?id={$row['id']}' class='btn btn-primary'><i class='fas fa-edit'></i> Edit</a>
-                                        <a href='delete_staff.php?id={$row['id']}' class='btn btn-secondary'><i class='fas fa-trash'></i> Delete</a>
+                                        <button type='button' class='btn btn-secondary' data-toggle='modal' data-target='#deleteModal{$row['id']}'><i class='fas fa-trash'></i> Delete</button>
                                     </td>
                                 </tr>";
                             $no++;
+
+                            echo "<div class='modal fade' id='deleteModal{$row['id']}' tabindex='-1' role='dialog' aria-labelledby='deleteModalLabel{$row['id']}' aria-hidden='true'>
+                                    <div class='modal-dialog' role='document'>
+                                        <div class='modal-content'>
+                                            <div class='modal-header'>
+                                                <h5 class='modal-title' id='deleteModalLabel{$row['id']}'>Delete Staff</h5>
+                                                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                                    <span aria-hidden='true'>&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class='modal-body'>
+                                                Are you sure you want to delete this staff?
+                                            </div>
+                                            <div class='modal-footer'>
+                                                <button type='button' class='btn btn-secondary' data-dismiss='modal'>Cancel</button>
+                                                <a href='delete_staff.php?id={$row['id']}' class='btn btn-primary'>Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>";
                         }
                     } else {
                         echo "<tr><td colspan='3'>No staff available</td></tr>";
@@ -59,8 +79,6 @@ include '../includes/db.php';
         </div>
     </div>
 </div>
-
-<!-- <button onclick="location.href='dashboard.php'" class="back-button">Back to Dashboard</button>   -->
 
 <?php include '../includes/sidebar.php'; ?>
 
@@ -80,3 +98,4 @@ include '../includes/db.php';
 
     <!-- Page level custom scripts -->
     <script src="../js/demo/datatables-demo.js"></script>
+

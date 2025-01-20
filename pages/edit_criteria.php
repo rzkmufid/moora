@@ -5,18 +5,17 @@ if (!isset($_SESSION['loggedin'])) {
     exit();  
 }  
   
-include '../includes/header.php';  
 include '../includes/db.php';  
-  
+
 if (isset($_GET['id'])) {  
     $criteria_id = $_GET['id'];  
-  
+    
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
         $name = $_POST['name'];  
         $code = $_POST['code'];  
         $type = $_POST['type'];  
         $weight = $_POST['weight'];  
-  
+        
         $sql = "UPDATE criteria SET code = '$code', name = '$name', type = '$type', weight = '$weight' WHERE id = '$criteria_id'";  
         if ($conn->query($sql) === TRUE) {  
             $success = "Criteria updated successfully.";  
@@ -24,11 +23,11 @@ if (isset($_GET['id'])) {
             $error = "Error: " . $sql . "<br>" . $conn->error;  
         }  
     }  
-  
+    
     // Fetch criteria data  
     $sql_criteria = "SELECT * FROM criteria WHERE id = '$criteria_id'";  
     $result_criteria = $conn->query($sql_criteria);  
-  
+    
     if ($result_criteria->num_rows > 0) {  
         $criteria = $result_criteria->fetch_assoc();  
     } else {  
@@ -39,6 +38,7 @@ if (isset($_GET['id'])) {
     header("Location: criteria.php");  
     exit();  
 }  
+include '../includes/header.php';  
 ?>  
   
   <div class="container mt-5">
