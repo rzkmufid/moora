@@ -5,7 +5,6 @@ if (!isset($_SESSION['loggedin'])) {
     exit();
 }
 
-include '../includes/header.php';
 include '../includes/db.php';
 
 // Kode perhitungan MOORA  
@@ -114,14 +113,24 @@ foreach ($yi as $name => $value) {
 
 arsort($ranking);
 ?>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        border-color: grey;
+        table-layout: fixed;
+    }
+    td, th {
+        padding: 5px;
+        word-wrap: break-word;
+    }
 
-
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h2>Results</h2>
-    <!-- <button onclick="exportTableToCSV('results.csv')" class="btn btn-primary">Export to CSV</button> -->
-    <a href="print.php" class="btn btn-primary" target="_blank"><i class="fas fa-print"></i> Print</a>
-
-</div>
+    </style>
+<script>
+    window.onload = function() { 
+        window.print(); 
+    }
+</script>
 
 <?php
 // Koneksi ke database
@@ -156,16 +165,19 @@ $result_alternatives = $conn->query($sql_alternatives);
 
 $alternatives = [];
 
+echo "<h1 style='text-align: center;'>Hasil Perhitungan MOORA</h1>";
+
 // Tampilkan Data Mentah
 echo "<div class='card shadow mb-4'>
     <div class='card-header py-3 d-flex justify-content-between align-items-center'>
-        <h6 class='m-0 font-weight-bold text-primary'>
+        <h3 class='m-0 font-weight-bold text-primary'>
             Data Mentah
-        </h6>
+        </h3>
     </div>
     <div class='card-body'>
         <div class='table-responsive'>
             <table
+                border='1'
                 class='table table-bordered'
                 id='dataTable'
                 width='100%'
@@ -209,13 +221,14 @@ echo "</div></div></div>";
 // echo "<h3>Tabel Pembagi</h3>";
 echo "<div class='card shadow mb-4'>
 <div class='card-header py-3 d-flex justify-content-between align-items-center'>
-<h6 class='m-0 font-weight-bold text-primary'>
+<h3 class='m-0 font-weight-bold text-primary'>
 Table Pembagi
-</h6>
+</h3>
 </div>
 <div class='card-body'>
 <div class='table-responsive'>
 <table
+border='1'
 class='table table-bordered'
 id='dataTable'
 width='100%'
@@ -248,13 +261,14 @@ echo "</div></div></div>";
 // Tampilkan Hasil Perkalian Data Mentah dengan Tabel Pembagi
 echo "<div class='card shadow mb-4'>
 <div class='card-header py-3 d-flex justify-content-between align-items-center'>
-<h6 class='m-0 font-weight-bold text-primary'>
+<h3 class='m-0 font-weight-bold text-primary'>
 Hasil Perkalian Data Mentah dengan Tabel Pembagi
-</h6>
+</h3>
 </div>
 <div class='card-body'>
 <div class='table-responsive'>
 <table
+border='1'
 class='table table-bordered'
 id='dataTable'
 width='100%'
@@ -288,13 +302,14 @@ echo "</div></div></div>";
 // Perhitungan: Mengalikan hasil normalisasi dengan bobot
 echo "<div class='card shadow mb-4'>
 <div class='card-header py-3 d-flex justify-content-between align-items-center'>
-<h6 class='m-0 font-weight-bold text-primary'>
+<h3 class='m-0 font-weight-bold text-primary'>
 Hasil Perhitungan Normalisasi dengan Bobot
-</h6>
+</h3>
 </div>
 <div class='card-body'>
 <div class='table-responsive'>
 <table
+border='1'
 class='table table-bordered'
 id='dataTable'
 width='100%'
@@ -354,13 +369,14 @@ echo "</div></div></div>";
 // Tampilkan hasil akhir  
 echo "<div class='card shadow mb-4'>
 <div class='card-header py-3 d-flex justify-content-between align-items-center'>
-<h6 class='m-0 font-weight-bold text-primary'>
+<h3 class='m-0 font-weight-bold text-primary'>
 Hasil Akhir (Y_i)
-</h6>
+</h3>
 </div>
 <div class='card-body'>
 <div class='table-responsive'>
 <table
+border='1'
 class='table table-bordered'
 id='dataTable'
 width='100%'
@@ -400,7 +416,6 @@ echo "</table>";
 echo "</div></div></div>";
 
 
-
 $conn->close();
 ?>
 
@@ -435,19 +450,3 @@ $conn->close();
         downloadLink.click();
     }
 </script>
-
-
-<?php include '../includes/sidebar.php'; ?>
-
-<!-- Bootstrap core JavaScript-->
-<script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin-2.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="../js/demo/datatables-demo.js"></script>
