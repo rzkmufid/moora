@@ -32,9 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();    
         } else {    
             $error = "Invalid username or password.";    
+            echo $error;
         }    
     } else {    
         $error = "Invalid username or password.";    
+        echo $error;
     }    
 }    
 ?>    
@@ -73,6 +75,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <?php if (isset($error)): ?>
+                                        <div class="alert alert-danger" role="alert">
+                                            <?= $error ?>
+                                        </div>
+                                        <?php endif; ?>
                                     </div>
                                     <form class="user" action="login.php" method="POST">
                                         <div class="form-group">

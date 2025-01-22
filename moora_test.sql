@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2025 at 02:07 PM
+-- Generation Time: Jan 22, 2025 at 08:53 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alternatives` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL
+  `name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -171,7 +171,7 @@ INSERT INTO `alternative_values` (`id`, `alternative_id`, `criterion_id`, `value
 CREATE TABLE `criteria` (
   `id` int(11) NOT NULL,
   `code` varchar(10) NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `name` varchar(25) NOT NULL,
   `description` text DEFAULT NULL,
   `type` enum('Cost','Benefit') NOT NULL,
   `weight` decimal(5,2) NOT NULL
@@ -187,8 +187,7 @@ INSERT INTO `criteria` (`id`, `code`, `name`, `description`, `type`, `weight`) V
 (3, 'C3', 'Keamanan', 'Tingkat keamanan di lokasi usaha', 'Benefit', 0.25),
 (4, 'C4', 'Internetan', 'Ketersediaan akses internet', 'Benefit', 0.10),
 (5, 'C5', 'Pusat Keramaian', 'Kedekatan dengan pusat keramaian', 'Benefit', 0.20),
-(6, 'C6', 'Harga Sewa', 'Harga sewa lokasi usaha', 'Cost', 0.10),
-(35, 'C7', 'Kos', NULL, 'Benefit', 0.25);
+(6, 'C6', 'Harga Sewa', 'Harga sewa lokasi usaha', 'Cost', 0.10);
 
 -- --------------------------------------------------------
 
@@ -238,12 +237,7 @@ INSERT INTO `subcriteria` (`id`, `criterion_id`, `subkriteria`, `description`, `
 (63, 5, 'Cukup Dekat', 'Berjarak 500-1.000 meter dari pusat keramaian', 2),
 (64, 5, 'Agak Jauh', 'Berjarak 1.000-1.500 meter dari pusat keramaian', 3),
 (65, 5, 'Jauh', 'Berjarak lebih dari 1.500 meter dari pusat keramaian', 4),
-(66, 5, 'Sangat Dekat', 'Berada di dalam pusat keramaian', 5),
-(67, 35, '11', '1', 1),
-(68, 35, '1', '1', 2),
-(69, 35, '1', '1', 3),
-(70, 35, '1', '1', 4),
-(71, 35, '1', '11', 5);
+(66, 5, 'Sangat Dekat', 'Berada di dalam pusat keramaian', 5);
 
 -- --------------------------------------------------------
 
@@ -254,7 +248,7 @@ INSERT INTO `subcriteria` (`id`, `criterion_id`, `subkriteria`, `description`, `
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `name` varchar(225) NOT NULL,
+  `name` varchar(25) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` enum('pimpinan','staff') NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp()
@@ -265,8 +259,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `name`, `password`, `role`, `created_at`) VALUES
-(1, 'admin1', 'Ridho', '$2a$12$hfhQ.qz1QbWGB2oyFt81dOIpS0hCmx.6ZcAqeC7UJJoMoul5F2HVC', 'pimpinan', '2025-01-13 14:54:11'),
-(2, 'asepp', 'Asep', '$2y$10$uaLQZTyKLC0swhoUEJzSgecu/dsDbjKmDMTb2LIUKRrI.ofYFcbTG', 'staff', '2025-01-13 15:05:54');
+(1, 'admin1', 'Ridho', '$2a$12$d7s4YbGcMlX8z3p7g0AZIOzcqWzpsP389fmjb/FZWW67KQXo6BHBe', 'pimpinan', '2025-01-13 14:54:11'),
+(2, 'staff1', 'Staff', '$2a$12$A8TpAS84.kq9Qx8xYHEbt.SzZ626i6iat/vsoyi8TyoKF4LDPOaoe', 'staff', '2025-01-13 15:05:54');
 
 --
 -- Indexes for dumped tables
@@ -314,25 +308,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `alternatives`
 --
 ALTER TABLE `alternatives`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `alternative_values`
 --
 ALTER TABLE `alternative_values`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
 -- AUTO_INCREMENT for table `criteria`
 --
 ALTER TABLE `criteria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `subcriteria`
 --
 ALTER TABLE `subcriteria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `users`
