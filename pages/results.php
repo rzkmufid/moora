@@ -338,12 +338,12 @@ foreach ($alternatives as $alt_name => $values) {
     $result_row['total'] = round($y, 4);
     $results[] = $result_row;
     echo "<tr>  
-    <td>$alt_name</td>";
+     <td>$alt_name</td>";
 
     foreach ($criteria as $criterion) {
         echo "<td>" . $result_row[$criterion['code']] . "</td>";
     }
-    echo "<td>" . $result_row['total'] . "</td>";
+    // echo "<td>" . $result_row['total'] . "</td>";
     echo "</tr>";
     $yi[$alt_name] = $y;
 }
