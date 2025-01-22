@@ -358,7 +358,7 @@ foreach ($alternatives as $alt_name => $values) {
     foreach ($criteria as $criterion) {
         echo "<td>" . $result_row[$criterion['code']] . "</td>";
     }
-    echo "<td>" . $result_row['total'] . "</td>";
+    // echo "<td>" . $result_row['total'] . "</td>";
     echo "</tr>";
     $yi[$alt_name] = $y;
 }
