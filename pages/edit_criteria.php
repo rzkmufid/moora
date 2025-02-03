@@ -67,7 +67,7 @@ include '../includes/header.php';
             <input type="number" step="0.01" class="form-control" id="weight" name="weight" value="<?php echo $criteria['weight']; ?>" required>
         </div>
         <div>
-            <button type="submit" class="btn btn-primary">Update Criteria</button>
+            <button type="submit" class="btn btn-coklat">Update Criteria</button>
             <a href='criteria.php' class="btn btn-secondary">Back to Criteria</a>
         </div>
     </form>

@@ -49,7 +49,7 @@ include '../includes/header.php';
             <label for="weight" class="form-label">Weight:</label>  
             <input type="number" step="0.01" class="form-control" id="weight" name="weight" required>  
         </div>  
-        <button type="submit" class="btn btn-primary">Add Criteria</button>  
+        <button type="submit" class="btn btn-coklat">Add Criteria</button>  
         <a href="criteria.php" class="btn btn-secondary">Back to Criteria</a>  
     </form>  
 </div>  

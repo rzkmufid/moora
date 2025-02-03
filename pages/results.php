@@ -118,8 +118,8 @@ arsort($ranking);
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>Results</h2>
-    <!-- <button onclick="exportTableToCSV('results.csv')" class="btn btn-primary">Export to CSV</button> -->
-    <a href="print.php" class="btn btn-primary" target="_blank"><i class="fas fa-print"></i> Print</a>
+    <!-- <button onclick="exportTableToCSV('results.csv')" class="btn btn-coklat">Export to CSV</button> -->
+    <a href="print.php" class="btn btn-coklat" target="_blank"><i class="fas fa-print"></i> Print</a>
 
 </div>
 
@@ -159,7 +159,7 @@ $alternatives = [];
 // Tampilkan Data Mentah
 echo "<div class='card shadow mb-4'>
     <div class='card-header py-3 d-flex justify-content-between align-items-center'>
-        <h6 class='m-0 font-weight-bold text-primary'>
+        <h6 class='m-0 font-weight-bold text-coklat'>
             Data Mentah
         </h6>
     </div>
@@ -209,7 +209,7 @@ echo "</div></div></div>";
 // echo "<h3>Tabel Pembagi</h3>";
 echo "<div class='card shadow mb-4'>
 <div class='card-header py-3 d-flex justify-content-between align-items-center'>
-<h6 class='m-0 font-weight-bold text-primary'>
+<h6 class='m-0 font-weight-bold text-coklat'>
 Table Pembagi
 </h6>
 </div>
@@ -248,7 +248,7 @@ echo "</div></div></div>";
 // Tampilkan Hasil Perkalian Data Mentah dengan Tabel Pembagi
 echo "<div class='card shadow mb-4'>
 <div class='card-header py-3 d-flex justify-content-between align-items-center'>
-<h6 class='m-0 font-weight-bold text-primary'>
+<h6 class='m-0 font-weight-bold text-coklat'>
 Hasil Perkalian Data Mentah dengan Tabel Pembagi
 </h6>
 </div>
@@ -288,7 +288,7 @@ echo "</div></div></div>";
 // Perhitungan: Mengalikan hasil normalisasi dengan bobot
 echo "<div class='card shadow mb-4'>
 <div class='card-header py-3 d-flex justify-content-between align-items-center'>
-<h6 class='m-0 font-weight-bold text-primary'>
+<h6 class='m-0 font-weight-bold text-coklat'>
 Hasil Perhitungan Normalisasi dengan Bobot
 </h6>
 </div>
@@ -354,7 +354,7 @@ echo "</div></div></div>";
 // Tampilkan hasil akhir  
 echo "<div class='card shadow mb-4'>
 <div class='card-header py-3 d-flex justify-content-between align-items-center'>
-<h6 class='m-0 font-weight-bold text-primary'>
+<h6 class='m-0 font-weight-bold text-coklat'>
 Hasil Akhir (Y_i)
 </h6>
 </div>

@@ -39,15 +39,20 @@ foreach ($months as $month) {
 }  
 include '../includes/header.php';
 ?>   
+<style>
+    .text-coklat{
+        color: #964B00;
+    }
+</style>
     <div class="container-fluid">  
         <h1 class="mt-4">Dashboard</h1>  
         <div class="row">  
             <div class="col-xl-4 col-md-6 mb-4">  
-                <div class="card border-left-primary shadow h-100 py-2">  
+                <div class="card border-left-danger shadow h-100 py-2">  
                     <div class="card-body">  
                         <div class="row no-gutters align-items-center">  
                             <div class="col mr-2">  
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Staff</div>  
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total Staff</div>  
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $total_staff; ?></div>  
                             </div>  
                             <div class="col-auto">  

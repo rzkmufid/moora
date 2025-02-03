@@ -60,7 +60,7 @@ include '../includes/header.php';
         <label for="password">Password:</label>
         <input type="password" id="password" class="form-control" name="password"> <!-- Password optional -->
     </div>
-    <button type="submit" class="btn btn-primary">Update Staff</button> 
+    <button type="submit" class="btn btn-coklat">Update Staff</button> 
     <a href="staff.php" class="btn btn-secondary">Back to Users Page</a>   
 </form> 
 </div>   

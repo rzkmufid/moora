@@ -1,6 +1,7 @@
 <?php
 // session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,12 +31,26 @@
     <link href="../css/sb-admin-2.min.css" rel="stylesheet" />
   </head>
 
+  <style>
+    .bg-cokelat{
+        background-color: #964B00;
+    }
+    .text-coklat{
+        color: #964B00;
+    }
+    .btn-coklat{
+        background-color: #964B00;
+        color: #ffffff;
+    }
+  </style>
+ 
+
   <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
       <!-- Sidebar -->
       <ul
-        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        class="navbar-nav bg-cokelat sidebar sidebar-dark accordion"
         id="accordionSidebar"
       >
         <!-- Sidebar - Brand -->

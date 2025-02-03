@@ -41,8 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }    
 ?>    
 
-  
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -56,23 +55,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <style>
+        .card-login {
+            background-color: #964B00; /* Brown color for the card */
+            color: #ffffff; /* White text color for contrast */
+        }
+        .bg-login-image {
+            background-image: url('../img/login.png');
+            background-size: contain; /* Adjust size to contain the image */
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-clip: border-box;
+        }
+        .btn-primary {
+            background-color: #0056b3; /* Darker blue for buttons */
+            border-color: #0056b3;
+        }
+        .btn-primary:hover {
+            background-color: #004494;
+            border-color: #004494;
+        }
+        body {
+            background-color: #f4f4f9; /* Light grey for the body */
+        }
+        .btn-coklat{
+            background-color: #964B00;
+            color: #ffffff;
+        }
+        .roundeder{
+            border-radius: 28px;
+        }
+        .roundeder-lg{
+            border-radius: 32px;
+        }
+    </style>
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-white">
     <div class="container">
         <!-- Outer Row -->
         <div class="row justify-content-center">
-
-            <div class="col-xl-5 col-lg-12 col-md-9">
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5 card-login roundeder-lg">
+                    <div class="card-body p-5">
                         <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="p-5">
+                        <div class="row roundeder-lg ">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6 roundeder">
+                                <div class="p-5 bg-white roundeder ">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                         <?php if (isset($error)): ?>
@@ -83,18 +115,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     </div>
                                     <form class="user" action="login.php" method="POST">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="username" name="username" aria-describedby="username" placeholder="Enter Username...">
+                                            <input type="text" class="form-control form-control-user" id="username" name="username" aria-describedby="username" placeholder="Enter Username..." required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password" required>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember Me</label>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-coklat btn-user btn-block">
                                             Login
                                         </button>
                                         <hr>

@@ -11,10 +11,10 @@ include '../includes/db.php';
     
 <div class="card shadow mb-4">    
     <div class="card-header py-3 d-flex justify-content-between align-items-center">    
-        <h6 class="m-0 font-weight-bold text-primary">    
+        <h6 class="m-0 font-weight-bold text-coklat">    
             Criteria List Table    
         </h6>    
-        <button onclick="location.href='add_criteria.php'" class="btn btn-primary">Add Criteria</button>    
+        <button onclick="location.href='add_criteria.php'" class="btn btn-coklat">Add Criteria</button>    
     </div>    
     <div class="card-body">    
         <div class="table-responsive">    
@@ -57,7 +57,7 @@ include '../includes/db.php';
                                 <td>{$row['type']}</td>      
                                 <td>{$row['weight']}</td>      
                                 <td>      
-                                    <a href='edit_criteria.php?id={$row['id']}' class='btn btn-primary'><i class='fas fa-edit'></i> Edit</a>      
+                                    <a href='edit_criteria.php?id={$row['id']}' class='btn btn-coklat'><i class='fas fa-edit'></i> Edit</a>      
                                     <button class='btn btn-secondary' data-toggle='modal' data-target='#deleteModal{$row['id']}'><i class='fas fa-trash'></i> Delete</button>      
                                     <button class='btn btn-info' data-toggle='modal' data-target='#subcriteriaModal{$row['id']}'><i class='fas fa-list'></i> Manage Subcriteria</button>    
                                 </td>      
@@ -78,7 +78,7 @@ include '../includes/db.php';
                                             </div>    
                                             <div class='modal-footer'>    
                                                 <button type='button' class='btn btn-secondary' data-dismiss='modal'>Cancel</button>    
-                                                <a href='delete_criteria.php?id={$row['id']}' class='btn btn-primary'>Delete</a>    
+                                                <a href='delete_criteria.php?id={$row['id']}' class='btn btn-coklat'>Delete</a>    
                                             </div>    
                                         </div>    
                                     </div>    
@@ -122,7 +122,7 @@ include '../includes/db.php';
                                         </div>";    
                             }    
     
-                            echo "<button type='submit' class='btn btn-primary'>Save Subcriteria</button>    
+                            echo "<button type='submit' class='btn btn-coklat'>Save Subcriteria</button>    
                                                 </form>    
                                             </div>    
                                         </div>    

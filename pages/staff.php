@@ -11,10 +11,10 @@ include '../includes/db.php';
 ?>
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex justify-content-between align-items-center">
-        <h6 class="m-0 font-weight-bold text-primary">
+        <h6 class="m-0 font-weight-bold text-coklat">
             Staff List Table
         </h6>
-        <button onclick="location.href='add_staff.php'" class="btn btn-primary">Add Staff</button>
+        <button onclick="location.href='add_staff.php'" class="btn btn-coklat">Add Staff</button>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -44,7 +44,7 @@ include '../includes/db.php';
                                     <td>{$row['username']}</td>
                                     <td>{$row['name']}</td>
                                     <td>
-                                        <a href='edit_staff.php?id={$row['id']}' class='btn btn-primary'><i class='fas fa-edit'></i> Edit</a>
+                                        <a href='edit_staff.php?id={$row['id']}' class='btn btn-coklat'><i class='fas fa-edit'></i> Edit</a>
                                         <button type='button' class='btn btn-secondary' data-toggle='modal' data-target='#deleteModal{$row['id']}'><i class='fas fa-trash'></i> Delete</button>
                                     </td>
                                 </tr>";
@@ -82,6 +82,7 @@ include '../includes/db.php';
 
 <?php include '../includes/sidebar.php'; ?>
 
+</script>
 <!-- Bootstrap core JavaScript-->
 <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -93,9 +94,10 @@ include '../includes/db.php';
     <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <!-- <script src="../vendor/datatables/jquery.dataTables.min.js"></script> -->
     <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="../js/demo/datatables-demo.js"></script>
+
 

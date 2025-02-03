@@ -99,7 +99,7 @@ include '../includes/header.php';
         }    
         ?>    
     
-        <button type="submit" class="btn btn-primary">Update Alternative</button>    
+        <button type="submit" class="btn btn-coklat">Update Alternative</button>    
         <a href="alternatives.php" class="btn btn-secondary">Back to Alternatives</a>    
     </form>    
 </div>  

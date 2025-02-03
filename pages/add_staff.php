@@ -42,7 +42,7 @@ include '../includes/header.php';
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" class="form-control" required>
         </div>
-        <button type="submit" class="btn btn-primary">Add User</button>
+        <button type="submit" class="btn btn-coklat">Add User</button>
         <a type="submit" class="btn btn-secondary" href="staff.php">Back to Users Page</a>
     </form>
 </div>

@@ -11,10 +11,10 @@ include '../includes/db.php';
   
 <div class="card shadow mb-4">  
     <div class="card-header py-3 d-flex justify-content-between align-items-center">  
-        <h6 class="m-0 font-weight-bold text-primary">  
+        <h6 class="m-0 font-weight-bold text-coklat">  
             Alternative List Table  
         </h6>  
-        <button onclick="location.href='add_alternative.php'" class="btn btn-primary">Add Alternative</button>  
+        <button onclick="location.href='add_alternative.php'" class="btn btn-coklat">Add Alternative</button>  
     </div>  
     <div class="card-body">  
         <div class="table-responsive">  
@@ -87,7 +87,7 @@ include '../includes/db.php';
                             }  
   
                             echo "<td>    
-                        <a href='edit_alternative.php?id={$row['id']}' class='btn btn-primary'> <i class='fas fa-edit'></i> Edit</a>    
+                        <a href='edit_alternative.php?id={$row['id']}' class='btn btn-coklat'> <i class='fas fa-edit'></i> Edit</a>    
                         <button class='btn btn-secondary' data-toggle='modal' data-target='#deleteModal{$row['id']}'> <i class='fas fa-trash'></i> Delete</button>    
                       </td>    
                       </tr>";  
@@ -138,7 +138,7 @@ include '../includes/db.php';
 <script src="../js/sb-admin-2.min.js"></script>  
   
 <!-- Page level plugins -->  
-<script src="../vendor/datatables/jquery.dataTables.min.js"></script>  
+<!-- <script src="../vendor/datatables/jquery.dataTables.min.js"></script>   -->
 <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>  
   
 <!-- Page level custom scripts -->  

@@ -55,7 +55,7 @@
             >
               Cancel
             </button>
-            <a class="btn btn-primary" href="login.php?logout=1">Logout</a>
+            <a class="btn btn-coklat" href="login.php?logout=1">Logout</a>
           </div>
         </div>
       </div>
