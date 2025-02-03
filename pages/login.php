@@ -90,6 +90,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .roundeder-lg{
             border-radius: 32px;
         }
+        .text-coklat{
+        color: #964B00;
+        } 
+        .text-coklat:hover{
+            color:rgb(94, 47, 1);
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -124,6 +131,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             Login
                                         </button>
                                         <hr>
+                                        <div class="text-center">
+                                            <a class="small text-coklat" href="forgot_password.php">Forgot Password?</a>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
