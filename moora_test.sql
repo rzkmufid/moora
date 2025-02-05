@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2025 at 08:53 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.1.25
+-- Waktu pembuatan: 05 Feb 2025 pada 03.52
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alternatives`
+-- Struktur dari tabel `alternatives`
 --
 
 CREATE TABLE `alternatives` (
@@ -33,7 +33,7 @@ CREATE TABLE `alternatives` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `alternatives`
+-- Dumping data untuk tabel `alternatives`
 --
 
 INSERT INTO `alternatives` (`id`, `name`) VALUES
@@ -56,7 +56,7 @@ INSERT INTO `alternatives` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alternative_values`
+-- Struktur dari tabel `alternative_values`
 --
 
 CREATE TABLE `alternative_values` (
@@ -67,7 +67,7 @@ CREATE TABLE `alternative_values` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `alternative_values`
+-- Dumping data untuk tabel `alternative_values`
 --
 
 INSERT INTO `alternative_values` (`id`, `alternative_id`, `criterion_id`, `value`) VALUES
@@ -165,7 +165,7 @@ INSERT INTO `alternative_values` (`id`, `alternative_id`, `criterion_id`, `value
 -- --------------------------------------------------------
 
 --
--- Table structure for table `criteria`
+-- Struktur dari tabel `criteria`
 --
 
 CREATE TABLE `criteria` (
@@ -178,7 +178,7 @@ CREATE TABLE `criteria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `criteria`
+-- Dumping data untuk tabel `criteria`
 --
 
 INSERT INTO `criteria` (`id`, `code`, `name`, `description`, `type`, `weight`) VALUES
@@ -192,7 +192,7 @@ INSERT INTO `criteria` (`id`, `code`, `name`, `description`, `type`, `weight`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subcriteria`
+-- Struktur dari tabel `subcriteria`
 --
 
 CREATE TABLE `subcriteria` (
@@ -204,7 +204,7 @@ CREATE TABLE `subcriteria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `subcriteria`
+-- Dumping data untuk tabel `subcriteria`
 --
 
 INSERT INTO `subcriteria` (`id`, `criterion_id`, `subkriteria`, `description`, `score`) VALUES
@@ -242,38 +242,39 @@ INSERT INTO `subcriteria` (`id`, `criterion_id`, `subkriteria`, `description`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `name` varchar(25) NOT NULL,
+  `email` varchar(25) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` enum('pimpinan','staff') NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `name`, `password`, `role`, `created_at`) VALUES
-(1, 'admin1', 'Ridho', '$2a$12$d7s4YbGcMlX8z3p7g0AZIOzcqWzpsP389fmjb/FZWW67KQXo6BHBe', 'pimpinan', '2025-01-13 14:54:11'),
-(2, 'staff1', 'Staff', '$2a$12$A8TpAS84.kq9Qx8xYHEbt.SzZ626i6iat/vsoyi8TyoKF4LDPOaoe', 'staff', '2025-01-13 15:05:54');
+INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `role`, `created_at`) VALUES
+(1, 'admin1', 'mufid', 'rizkimufid.rm3@gmail.com', '$2y$10$qON8U12BogkYnjzL1YPYD.z0Qt7juB9egs/ztutEQNjJ7RaWNCVky', 'pimpinan', '2025-01-13 14:54:11'),
+(2, 'staff1', 'Staff', 'rizkimufid.rm@gmail.com', '$2y$10$9y75FXGwakzHQB1qwhHtKeeNF4naSABIyiXAF2/YzVmB04lls.9/a', 'staff', '2025-01-13 15:05:54');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `alternatives`
+-- Indeks untuk tabel `alternatives`
 --
 ALTER TABLE `alternatives`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `alternative_values`
+-- Indeks untuk tabel `alternative_values`
 --
 ALTER TABLE `alternative_values`
   ADD PRIMARY KEY (`id`),
@@ -281,72 +282,72 @@ ALTER TABLE `alternative_values`
   ADD KEY `criterion_id` (`criterion_id`);
 
 --
--- Indexes for table `criteria`
+-- Indeks untuk tabel `criteria`
 --
 ALTER TABLE `criteria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `subcriteria`
+-- Indeks untuk tabel `subcriteria`
 --
 ALTER TABLE `subcriteria`
   ADD PRIMARY KEY (`id`),
   ADD KEY `criterion_id` (`criterion_id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `alternatives`
+-- AUTO_INCREMENT untuk tabel `alternatives`
 --
 ALTER TABLE `alternatives`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `alternative_values`
+-- AUTO_INCREMENT untuk tabel `alternative_values`
 --
 ALTER TABLE `alternative_values`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
--- AUTO_INCREMENT for table `criteria`
+-- AUTO_INCREMENT untuk tabel `criteria`
 --
 ALTER TABLE `criteria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `subcriteria`
+-- AUTO_INCREMENT untuk tabel `subcriteria`
 --
 ALTER TABLE `subcriteria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `alternative_values`
+-- Ketidakleluasaan untuk tabel `alternative_values`
 --
 ALTER TABLE `alternative_values`
   ADD CONSTRAINT `alternative_values_ibfk_1` FOREIGN KEY (`alternative_id`) REFERENCES `alternatives` (`id`),
   ADD CONSTRAINT `alternative_values_ibfk_2` FOREIGN KEY (`criterion_id`) REFERENCES `criteria` (`id`);
 
 --
--- Constraints for table `subcriteria`
+-- Ketidakleluasaan untuk tabel `subcriteria`
 --
 ALTER TABLE `subcriteria`
   ADD CONSTRAINT `subcriteria_ibfk_1` FOREIGN KEY (`criterion_id`) REFERENCES `criteria` (`id`);

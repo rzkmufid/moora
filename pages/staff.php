@@ -29,6 +29,7 @@ include '../includes/db.php';
                         <th>No</th>
                         <th>Username</th>
                         <th>Name</th>
+                        <th>Email</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -43,6 +44,7 @@ include '../includes/db.php';
                                     <td>{$no}</td>
                                     <td>{$row['username']}</td>
                                     <td>{$row['name']}</td>
+                                    <td>{$row['email']}</td>
                                     <td>
                                         <a href='edit_staff.php?id={$row['id']}' class='btn btn-coklat'><i class='fas fa-edit'></i> Edit</a>
                                         <button type='button' class='btn btn-secondary' data-toggle='modal' data-target='#deleteModal{$row['id']}'><i class='fas fa-trash'></i> Delete</button>

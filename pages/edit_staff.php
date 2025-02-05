@@ -29,18 +29,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];    
     $password = $_POST['password'] ? password_hash($_POST['password'], PASSWORD_DEFAULT) : $staff['password']; // Hash password jika diubah  
     $name = $_POST['name']; // Tambahkan name disini
-  
-    // Update staff di database  
-    $sql = "UPDATE users SET username = ?, password = ?, name = ? WHERE id = ?";  
-    $stmt = $conn->prepare($sql);  
-    $stmt->bind_param("sssi", $username, $password, $name, $staff_id);  
-      
-    if ($stmt->execute()) {  
-        header("Location: staff.php");  
-        exit();  
-    } else {  
-        $error = "Error: " . $stmt->error;  
-    }  
+    $email = $_POST['email'] ? $_POST['email'] : $staff['email']; // Tambahkan email disini
+    // Update staff in the database
+    $sql = "UPDATE users SET username = ?, password = ?, name = ?, email = ? WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssssi", $username, $password, $name, $email, $staff_id);
+
+    if ($stmt->execute()) {
+        if ($stmt->affected_rows > 0) {
+            // Successful update
+            header("Location: staff.php");
+            exit();
+        } else {
+            $error = "No changes were made. Please check the email.";
+        }
+    } else {
+        $error = "Error: " . $stmt->error;
+    }
 }  
 include '../includes/header.php';
 ?>    
@@ -55,6 +60,10 @@ include '../includes/header.php';
     <div class="form-group">
         <label for="username">Username:</label>
         <input type="text" id="username" class="form-control" name="username" value="<?php echo $staff['username']; ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" name="email" value="<?php echo $staff['email']; ?>" aria-describedby="emailHelp" required>
     </div>
     <div class="form-group">
         <label for="password">Password:</label>

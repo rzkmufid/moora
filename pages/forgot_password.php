@@ -1,6 +1,10 @@
 <?php
 session_start();
 include '../includes/db.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../vendor/autoload.php'; // Pastikan path ini sesuai dengan lokasi autoload.php Anda
 
 $error = '';
 $message = '';
@@ -24,7 +28,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("ss", $hashed_password, $username);
         $stmt->execute();
 
-        $message = "Kata sandi berhasil direset.";
+        // Mengambil email pengguna untuk mengirim konfirmasi
+        $user_data = $result->fetch_assoc();
+        $user_email = $user_data['email'];
+
+        echo $user_email;
+
+        // Mengirim email konfirmasi
+        $mail = new PHPMailer(true);
+        try {
+            // Pengaturan server
+            $mail->isSMTP();                                            // Set email untuk menggunakan SMTP
+            $mail->Host       = 'smtp.gmail.com';                   // Ganti dengan host SMTP Anda
+            $mail->SMTPAuth   = true;                                 // Aktifkan otentikasi SMTP
+            $mail->Username   = 'ridhobungo15@gmail.com';             // Ganti dengan email Anda
+            $mail->Password   = 'vxvjnhefztsndqim';                // Ganti dengan password email Anda
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;      // Aktifkan enkripsi TLS
+            $mail->Port       = 587;                                  // Port yang digunakan untuk SMTP
+
+            // Penerima
+            $mail->setFrom($user_email, 'Admin Moora Application');    // Ganti dengan nama Anda
+            $mail->addAddress($user_email);                           // Tambahkan penerima
+
+            // Konten email
+            $mail->isHTML(true);                                      // Set email format ke HTML
+            $mail->Subject = 'Konfirmasi Perubahan Kata Sandi';
+            $mail->Body    = 'Kata sandi Anda telah berhasil diubah. Jika Anda tidak melakukan perubahan ini, silakan hubungi kami.';
+            $mail->AltBody = 'Kata sandi Anda telah berhasil diubah. Jika Anda tidak melakukan perubahan ini, silakan hubungi kami.';
+
+            $mail->send();
+            $message = "Kata sandi berhasil direset. Konfirmasi telah dikirim ke email Anda.";
+        } catch (Exception $e) {
+            $error = "Email tidak dapat dikirim. Kesalahan: {$mail->ErrorInfo}";
+        }
     } else {
         $error = "Tidak ada akun yang ditemukan dengan username tersebut.";
     }
@@ -33,78 +69,58 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>SB Admin 2 - Reset Kata Sandi</title>
-
-    <!-- Font kustom untuk template ini-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <!-- Gaya kustom untuk template ini-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <style>
         .card-login {
-            background-color: #964B00;
-            /* Brown color for the card */
-            color: #ffffff;
-            /* White text color for contrast */
+            background-color: #964B00; /* Brown color for the card */
+            color: #ffffff; /* White text color for contrast */
         }
-
         .bg-login-image {
             background-image: url('../img/login.png');
-            background-size: contain;
-            /* Adjust size to contain the image */
+            background-size: contain; /* Adjust size to contain the image */
             background-position: center center;
             background-repeat: no-repeat;
             background-clip: border-box;
         }
-
         .btn-primary {
-            background-color: #0056b3;
-            /* Darker blue for buttons */
+            background-color: #0056b3; /* Darker blue for buttons */
             border-color: #0056b3;
         }
-
         .btn-primary:hover {
             background-color: #004494;
             border-color: #004494;
         }
-
         body {
-            background-color: #f4f4f9;
-            /* Light grey for the body */
+            background-color: #f4f4f9; /* Light grey for the body */
         }
-
-        .btn-coklat {
+        .btn-coklat{
             background-color: #964B00;
             color: #ffffff;
         }
-
-        .roundeder {
+        .roundeder{
             border-radius: 28px;
         }
-
-        .roundeder-lg {
+        .roundeder-lg{
             border-radius: 32px;
         }
-
-        .text-coklat {
-            color: #964B00;
-        }
-
-        .text-coklat:hover {
-            color: rgb(94, 47, 1);
+        .text-coklat{
+        color: #964B00;
+        } 
+        .text-coklat:hover{
+            color:rgb(94, 47, 1);
             text-decoration: none;
         }
     </style>
 </head>
-
 <body class="bg-white">
     <div class="container">
         <!-- Baris luar -->
@@ -152,11 +168,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
     </div>
-    </div>
-
     <!-- JavaScript inti Bootstrap-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
